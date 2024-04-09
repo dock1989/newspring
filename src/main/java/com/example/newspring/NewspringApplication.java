@@ -11,7 +11,7 @@ public class NewspringApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(NewspringApplication.class, args);
-		System.out.println("App Started");
+		System.out.println("App is started");
 	}
 
 }
