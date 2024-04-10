@@ -1,8 +1,13 @@
 package com.example.newspring.controller;
 
+import com.example.newspring.modal.Faculty;
 import com.example.newspring.modal.Student;
+import com.example.newspring.repository.FacultyRepo;
+import lombok.val;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -10,6 +15,9 @@ import java.util.List;
 
 @RestController
 public class FirstRestController {
+
+    @Autowired
+    FacultyRepo facultyRepo;
 
     @GetMapping(path = "/check")
     public String check(){
@@ -42,6 +50,14 @@ public class FirstRestController {
         studentList.add(student2);
 
         return studentList;
+
+    }
+
+    @PostMapping(path = "/saveFaculty")
+    public String saveFaculty(@RequestBody Faculty faculty){
+
+        facultyRepo.save(faculty);
+        return "Record saved successfully";
 
     }
 
