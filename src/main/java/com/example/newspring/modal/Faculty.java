@@ -33,4 +33,7 @@ public class Faculty implements Serializable {
 	@NonNull
 	private String facName;
 
+	@Column(name = "fac_address")
+	private String facAddress;
+
 }
